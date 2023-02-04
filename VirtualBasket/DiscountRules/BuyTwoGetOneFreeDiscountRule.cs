@@ -8,7 +8,17 @@ public class BuyTwoGetOneFreeDiscountRule : IDiscountRule
 
     public ValueResults<int> GetDiscount(Basket basket)
     {
-        int itemCount = basket.Items.Count(i => ItemsGuidList.Contains(i.Id) is true);
+        int itemCount = 0;
+
+        try
+        {
+            itemCount = basket.Items.Count(i => ItemsGuidList.Contains(i.Id) is true);
+        }
+        catch (Exception ex)
+        {
+            return ValueResults<int>.Failed(ex.HResult, ex.Message);
+        }
+
         int freeItems = itemCount / 3;
 
         // In these two lines, items ordered by their cheapest value is subtracted, instead of matching by batches of matched item

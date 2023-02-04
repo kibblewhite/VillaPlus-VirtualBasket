@@ -15,7 +15,7 @@ public class BuyTwoGetOneFreeDiscountRule : IDiscountRule
         try
         {
             itemCount = basket.Items.Count(i => ItemsGuidList.Contains(i.Id) is true);
-            int freeItems = itemCount / 3;
+            int freeItems = itemCount == 0 ? 0 : itemCount / 3;
 
             // In these two lines, items ordered by their cheapest value is subtracted, instead of matching by batches of matched item
             IOrderedEnumerable<BasketItem> itemsOrderedByCheapest = basket.Items.OrderBy(x => x.Price);

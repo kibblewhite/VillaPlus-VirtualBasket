@@ -53,6 +53,51 @@ public class UnitTests
     }
 
     [TestMethod]
+    public void BasicTestWithNoItems()
+    {
+        // AAA: (Arrange-Act-Assert)
+        Basket basket = new();
+
+        // Arrange
+        HashSet<Guid> itemsGuidList = new()
+        {
+            BasketItemFactory.AppleGUID, BasketItemFactory.PearGUID
+        };
+
+        IDiscountRule discountRule = new BuyTwoGetOneFreeDiscountRule(itemsGuidList);
+        basket.AddDiscountRule(discountRule);
+
+        // Act
+        int priceWithoutDiscounts = basket.CalculateBasketPriceWithDiscounts();
+
+        // Assert
+        Assert.AreEqual(0, priceWithoutDiscounts);
+    }
+
+    [TestMethod]
+    public void BasicTestWithNoMatchedDiscountItems()
+    {
+        // AAA: (Arrange-Act-Assert)
+        Basket basket = new();
+        basket.PopulateBasket();
+
+        // Arrange
+        HashSet<Guid> itemsGuidList = new()
+        {
+            Guid.Empty
+        };
+
+        IDiscountRule discountRule = new BuyTwoGetOneFreeDiscountRule(itemsGuidList);
+        basket.AddDiscountRule(discountRule);
+
+        // Act
+        int priceWithoutDiscounts = basket.CalculateBasketPriceWithDiscounts();
+
+        // Assert
+        Assert.AreEqual(950, priceWithoutDiscounts);
+    }
+
+    [TestMethod]
     public void BuyTwoGetOneFreeDiscountRuleTest()
     {
         // AAA: (Arrange-Act-Assert)

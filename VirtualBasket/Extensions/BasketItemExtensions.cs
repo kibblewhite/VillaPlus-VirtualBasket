@@ -25,7 +25,7 @@ public static class BasketItemExtensions
             if (value_results.Success is false)
             {
                 // log error - depending where this logic sits in the application or service
-                //             it could instead bubble the exception up instead of catching and logging
+                //             it could instead bubble the exception up rather than catching and logging
                 //             > this information was not provided in the specifications
                 continue;
             }

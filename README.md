@@ -1,4 +1,4 @@
-# Villa Plus Virtual Basket
+# Virtual Basket
 
 ### Overview
 
@@ -25,7 +25,11 @@ The provided code is a C# implementation of a shopping basket application. The a
 
 ### Outline
 
-Implement a C# code to calculate the total price of items in a basket, taking into account discount rules. The code should support a "buy two, get one free" deal for certain items or combinations of items. For example, if the deal applies to apples and oranges, buying two apples and one orange would require payment for only two items.
+Implement C# code as a solution to calculate the total price of items in a basket, taking into account discount rules.
+The code should support a "buy two, get one free" deal for certain items or combinations of items.
+For example, if the deal applies to apples and oranges, buying two apples and one orange would require payment for only two items.
+It will be up to you how to decide the exact calculation on the discount will occur when dealing with the rule.
+For example, is it the cheapest items overall that is dicounted from all matched items, or the cheapest items in each set of matched items in the discount rule.
 
 The implementation should be:
 - Maintainable and of production quality
@@ -33,13 +37,14 @@ The implementation should be:
 
 Please note:
 - This task does not require implementing a shopping basket, e-commerce website, or console application
-- Aim to spend approximately two hours working on the solution.
-
+- Aim to spend approximately two - three hours working on the solution
+- If you are proud of your solution you are free to share it, but we ask for our details to be removed and our details not to be published without our permissions
 
 ### Guidelines
 
 - Adequate error handling in place
 - Effective unit testing to validate code functionality with a single well-defined assertion
+- Robust unit tests with comprehensive coverage
 - Organized project structure to ensure maintainability
 - Implementation of SOLID design principles
 - Class-based modular code organisation, for example, one class per file
@@ -48,10 +53,9 @@ Please note:
 - Well-defined code/class structure
 - Reusable functional components for an improved solution, demonstrating method extensions in functional programming style
 - Code with meaningful naming conventions
-- Emphasis on only the essential features provided to facilitate an improved understanding of the solution
-- Robust unit test suite with comprehensive coverage
-- Accurate promotion logic calculation
-- Deals are structured and coded with the potential to be extended (multiple deals can be applied)
+- Emphasis on the essential features only provided to facilitate an improved understanding of the solution
+- Accurate promotion/discount logic calculation
+- Discounts are structured and coded with the potential to be extended
 
 
 ## IMPORTANT

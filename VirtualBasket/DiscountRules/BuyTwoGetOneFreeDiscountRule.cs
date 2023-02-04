@@ -9,7 +9,8 @@ public class BuyTwoGetOneFreeDiscountRule : IDiscountRule
     public ValueResults<int> GetDiscount(Basket basket)
     {
         int itemCount = 0;
-        List<BasketItem> discountedValueItems = new();
+        int discountedValue = 0;
+        List <BasketItem> discountedValueItems = new();
 
         try
         {
@@ -20,13 +21,13 @@ public class BuyTwoGetOneFreeDiscountRule : IDiscountRule
             IOrderedEnumerable<BasketItem> itemsOrderedByCheapest = basket.Items.OrderBy(x => x.Price);
             IEnumerable<BasketItem> discountedItems = itemsOrderedByCheapest.Take(freeItems);
             discountedValueItems.AddRange(discountedItems);
+            discountedValue = discountedValueItems.Sum(x => x.Price);
         }
         catch (Exception ex)
         {
             return ValueResults<int>.Failed(ex.HResult, ex.Message);
         }
 
-        int discountedValue = discountedValueItems.Sum(x => x.Price);
         return ValueResults<int>.Passed(discountedValue < 0 ? 0 : discountedValue);
     }
 }

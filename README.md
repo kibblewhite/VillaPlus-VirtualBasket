@@ -27,8 +27,8 @@ The provided code is a C# implementation of a shopping basket application. The a
 
 Implement C# code as a solution to calculate the total price of items in a basket, taking into account discount rules.
 The code should support a "buy two, get one free" deal for certain items or combinations of items.
-For example, if the deal applies to apples and oranges, buying two apples and one orange would require payment for only two items.
-It will be up to you how to decide the exact calculation on the discount will occur when dealing with the rule.
+For example, if the deal applies to mangos and bananas, buying two mangos and one banana would require payment for only two items.
+It will be up to you how to decide the exact calculation on the discount that will occur when dealing with the rule.
 For example, is it the cheapest items overall that is dicounted from all matched items, or the cheapest items in each set of matched items in the discount rule.
 
 The implementation should be:
